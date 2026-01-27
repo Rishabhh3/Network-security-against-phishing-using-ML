@@ -1,3 +1,13 @@
 python-dotenv
 pandas
 numpy
+pymongo
+certifi
+
+
+# -e.
+# you can add it at the end when you are going to deploy it, like in cloud 
+# This makes sure when i write pip install -r requirements.txt it goes to setup.py there it ignore -e. and in
+# my network security folder it goes and creates folder named according to me setup.py and creates packages inside it
+# If you want to check what are the files it has created run pip install -r ...  after commenting it out
+# This is what makes setup.py run/execute
