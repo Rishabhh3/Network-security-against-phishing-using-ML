@@ -3,7 +3,7 @@ pandas
 numpy
 pymongo
 certifi
-
+pymongo
 
 # -e.
 # you can add it at the end when you are going to deploy it, like in cloud 
