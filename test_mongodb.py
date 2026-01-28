@@ -6,7 +6,7 @@ from urllib.parse import quote_plus
 
 password = quote_plus("YOUR_PASSWORD_HERE")
 
-uri = f"mongodb+srv://Rishabh0120:Dps8CgI7bxI7F0BT@cluster0.ke77r5i.mongodb.net/?appName=Cluster0"
+uri = f"mongodb+srv://Rishabh0120:<password>@cluster0.ke77r5i.mongodb.net/?appName=Cluster0"
 
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
