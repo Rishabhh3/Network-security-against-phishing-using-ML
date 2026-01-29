@@ -1,0 +1,6 @@
+[2026-01-29 18:33:47,976] 15 Network_Security.logger.logger - INFO - Initiate the data ingestion
+[2026-01-29 18:33:55,255] 73 Network_Security.logger.logger - INFO - performed train test split on dataframe
+[2026-01-29 18:33:55,255] 75 Network_Security.logger.logger - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[2026-01-29 18:33:55,255] 83 Network_Security.logger.logger - INFO - Exporting train and test file path
+[2026-01-29 18:33:55,279] 93 Network_Security.logger.logger - INFO - Exported train and test file path
+[2026-01-29 18:33:55,279] 17 Network_Security.logger.logger - INFO - Data ingestion completed!!!

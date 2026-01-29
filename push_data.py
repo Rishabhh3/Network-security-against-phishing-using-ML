@@ -22,7 +22,7 @@ import pymongo
 import pandas as pd
 import numpy as np
 
-from Network_Security import logging
+from Network_Security import logger
 from Network_Security.exception.exception import NetworkSecurityException
 
 from dotenv import load_dotenv
