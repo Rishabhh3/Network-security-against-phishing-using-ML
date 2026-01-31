@@ -16,6 +16,11 @@ if __name__=='__main__':
         data_ingestion_artifact = data_ingestion.inititiate_data_ingestion()
         logger.info("Data ingestion completed!!!")
 
+        data_validation_config = DataValidationConfig(training_pipeline_config)
+        data_validation = DataValidation(data_ingestion_artifact , data_validation_config)
+        logger.info("Initiate the data validation")
+        data_validation_artifact = data_validation.initiate_data_validation()
+        logger.info("Data validation completed!!!")
 
     except Exception as e:
         raise NetworkSecurityException(e,sys)
