@@ -1,4 +1,6 @@
 from Network_Security.components.data_ingestion import DataIngestion
+from Network_Security.components.data_validation import DataValidation
+
 
 from Network_Security.entity.config_entity import DataIngestionConfig , DataValidationConfig , DataTransformationConfig , ModelTrainerConfig
 from Network_Security.entity.config_entity import TrainingPipelineConfig
