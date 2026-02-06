@@ -15,11 +15,11 @@ from sklearn.linear_model import LogisticRegression
 import pandas as pd
 import sys
 import os
-import mlflow
+ # import mlflow
 from urllib.parse import urlparse
 
-import dagshub
-dagshub.init(repo_owner='Rishabh0120', repo_name='Network-Security-Phising-ML', mlflow=True)
+# import dagshub
+# dagshub.init(repo_owner='Rishabh0120', repo_name='Network-Security-Phising-ML', mlflow=True)
 
 
 class ModelTrainer:
@@ -33,7 +33,7 @@ class ModelTrainer:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
     
-    def track_mlflow(self , best_model , classification_metric):
+    ''' def track_mlflow(self , best_model , classification_metric):
         with mlflow.start_run():
             
             # mlflow.set_registry_uri("https://dagshub.com/krishnaik06/networksecurity.mlflow")
@@ -57,7 +57,7 @@ class ModelTrainer:
             #     # https://mlflow.org/docs/latest/model-registry.html#api-workflow
             #     mlflow.sklearn.log_model(best_model, "model", registered_model_name=best_model)
             # else:
-            #     mlflow.sklearn.log_model(best_model, "model")
+            #     mlflow.sklearn.log_model(best_model, "model") '''
 
     def train_model(self , x_train,y_train,x_test,y_test):
         models = {
@@ -115,8 +115,8 @@ class ModelTrainer:
         classification_test_metric = get_classification_score(y_true=y_test,y_pred=y_test_pred)
 
         # Tracking using MLFlow
-        self.track_mlflow(best_model , classification_train_metric)
-        self.track_mlflow(best_model , classification_test_metric)
+        # self.track_mlflow(best_model , classification_train_metric)
+        # self.track_mlflow(best_model , classification_test_metric)
 
         preprocessor = load_object(file_path = self.data_transformation_artifact.transformed_object_file_path)
             
