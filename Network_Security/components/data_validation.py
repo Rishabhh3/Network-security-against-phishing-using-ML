@@ -1,3 +1,13 @@
+''' This is quality control in my pipeline, checks data ingested is accurate, complete
+In the real world, data sources change. If the database admin changes a column name from Age to user_age, 
+my code will crash later. Validation catches this mismatch immediately.
+If my model was trained on house prices from 2020, but I feed it 2026 prices (which are much higher),
+ the model will fail. Validation warns you that the "distribution" has shifted.
+ 
+ It also has artifact where it will store the data after it takes it from ingested data
+ artifact = report
+ '''
+
 from Network_Security.logger.logger import logger
 from Network_Security.entity.config_entity import DataIngestionConfig
 from Network_Security.entity.config_entity import DataValidationConfig
@@ -18,6 +28,7 @@ class DataValidation:
                  data_validation_config: DataValidationConfig
                 ):
         try:
+            # saving the variable so I can use this in my whole class
             self.data_ingestion_artifact = data_ingestion_artifact
             self.data_validation_config = data_validation_config
             self.schema_config = read_yaml(SCHEMA_FILE_PATH)
@@ -25,7 +36,7 @@ class DataValidation:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
     
-    def validate_number_of_columns(self,dataframe:pd.DataFrame)->bool:
+    def validate_number_of_columns(self,dataframe:pd.DataFrame)->bool: 
         try:
             number_of_columns=len(self.schema_config['columns'])
             logger.info(f"Required number of columns:{number_of_columns}")

@@ -8,10 +8,11 @@ print(training_pipeline.ARTIFACT_DIR)
 
 class TrainingPipelineConfig:
     def __init__(self,timestamp=datetime.now()):
-        timestamp=timestamp.strftime("%m_%d_%Y_%H_%M_%S")
+        timestamp=timestamp.strftime("%m_%d_%Y_%H_%M_%S") # create artifact with name as timestamp
+
         self.pipeline_name=training_pipeline.PIPELINE_NAME
         self.artifact_name=training_pipeline.ARTIFACT_DIR
-        self.artifact_dir=os.path.join(self.artifact_name,timestamp)
+        self.artifact_dir=os.path.join(self.artifact_name,timestamp) # artifact with name as timestamp
         self.model_dir=os.path.join("final_model")
         self.timestamp: str=timestamp
 # This is coming from my __init__.py in trainig_pipeline where I defined all the constants, this ARTIFACT_DIR and all
@@ -19,15 +20,19 @@ class TrainingPipelineConfig:
 
 
 class DataIngestionConfig:  
+    # This class is the blueprint for your file system. It defines exactly where files should be saved and 
+    # what settings to use during the data ingestion process.
 
-    def __init__(self,config:TrainingPipelineConfig):
+    def __init__(self,config:TrainingPipelineConfig): # it takes a master configuration object (TrainingPipelineConfig) as input. This master config provides the root directory(artifacts).
         self.data_ingestion_dir:str=os.path.join(
             config.artifact_dir,training_pipeline.DATA_INGESTION_DIR_NAME
         )
+        # Creates the main folder for this stage. 
+        # It combines the root artifact_dir with a constant name (e.g., artifacts/data_ingestion). up
         
         self.feature_store_file_path: str = os.path.join(
                 self.data_ingestion_dir, training_pipeline.DATA_INGESTION_FEATURE_STORE_DIR, training_pipeline.FILE_NAME
-            )
+            ) # Path: artifacts/data_ingestion/feature_store/phishing.csv
         self.training_file_path: str = os.path.join(
                 self.data_ingestion_dir, training_pipeline.DATA_INGESTION_INGESTED_DIR, training_pipeline.TRAIN_FILE_NAME
             )
