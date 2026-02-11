@@ -4,7 +4,7 @@ import os
 import sys
 
 from Network_Security.exception.exception import NetworkSecurityException
-from Network_Security import logging
+from Network_Security.logger.logger import logging
 
 class NetworkModel:
     def __init__(self,preprocessor,model):

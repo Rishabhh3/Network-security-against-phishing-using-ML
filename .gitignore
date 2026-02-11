@@ -3,3 +3,5 @@ nvenv
 .venv
 logs/
 Artifacts/
+mlruns/
+abc.txt

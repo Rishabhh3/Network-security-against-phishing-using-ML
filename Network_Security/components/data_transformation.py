@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from sklearn.impute import KNNImputer
 from sklearn.pipeline import Pipeline
-from Network_Security import logger
+from Network_Security.logger.logger import logger
 from Network_Security.utils.common import save_numpy_array_data , save_object
 from Network_Security.entity.config_entity import DataTransformationConfig
 from Network_Security.exception.exception import NetworkSecurityException

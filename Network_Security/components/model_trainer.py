@@ -15,7 +15,7 @@ from sklearn.linear_model import LogisticRegression
 import pandas as pd
 import sys
 import os
- # import mlflow
+import mlflow
 from urllib.parse import urlparse
 
 # import dagshub
@@ -33,7 +33,7 @@ class ModelTrainer:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
     
-    ''' def track_mlflow(self , best_model , classification_metric):
+    def track_mlflow(self , best_model , classification_metric):
         with mlflow.start_run():
             
             # mlflow.set_registry_uri("https://dagshub.com/krishnaik06/networksecurity.mlflow")
@@ -115,8 +115,8 @@ class ModelTrainer:
         classification_test_metric = get_classification_score(y_true=y_test,y_pred=y_test_pred)
 
         # Tracking using MLFlow
-        # self.track_mlflow(best_model , classification_train_metric)
-        # self.track_mlflow(best_model , classification_test_metric)
+        self.track_mlflow(best_model , classification_train_metric)
+        self.track_mlflow(best_model , classification_test_metric)
 
         preprocessor = load_object(file_path = self.data_transformation_artifact.transformed_object_file_path)
             
