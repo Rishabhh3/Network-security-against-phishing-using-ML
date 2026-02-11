@@ -9,6 +9,7 @@ pyYAML
 mlflow
 dagshub
 pyaml
+fastapi
 
 # -e.
 # you can add it at the end when you are going to deploy it, like in cloud 
