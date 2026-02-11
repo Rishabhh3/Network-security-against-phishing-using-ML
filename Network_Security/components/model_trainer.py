@@ -18,9 +18,12 @@ import os
 import mlflow
 from urllib.parse import urlparse
 
-# import dagshub
-# dagshub.init(repo_owner='Rishabh0120', repo_name='Network-Security-Phising-ML', mlflow=True)
-
+import dagshub
+dagshub.init(repo_owner='Rishabhh3', repo_name='Network-security-against-phishing-using-ML', mlflow=True)
+# This is copied from dagshub repo 
+# mlflow is opensource but in dagshub paid you can generate a url from where your team members can see or track it 
+# now the tracking is not happening locally only after this no mlruns folder will be created it will be saved in dagshub
+# now see all things in dagshub otherwise you can use mlflow and save it locally and run mlflow ui to open in locally on your system in browser
 
 class ModelTrainer:
     def __init__(self,
