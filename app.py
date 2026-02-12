@@ -43,7 +43,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+#jinja2 is used for templates/table.html and valid_data/test.csv it doesnot have output col as it is what 
+# my model should predict
 from fastapi.templating import Jinja2Templates
 templates = Jinja2Templates(directory="./templates")
 
@@ -69,7 +70,7 @@ async def predict_route(request: Request,file: UploadFile = File(...)):
         final_model=load_object("final_model/model.pkl")
         network_model = NetworkModel(preprocessor=preprocesor,model=final_model)
         print(df.iloc[0])
-        y_pred = network_model.predict(df)
+        y_pred = network_model.predict(df)  # predict function from estimator.py
         print(y_pred)
         df['predicted_column'] = y_pred
         print(df['predicted_column'])

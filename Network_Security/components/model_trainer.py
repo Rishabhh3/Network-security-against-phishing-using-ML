@@ -130,7 +130,8 @@ class ModelTrainer:
         save_object(self.model_trainer_config.trained_model_file_path,obj = Network_Model)
         #model pusher
         save_object("final_model/model.pkl",best_model)
-
+        # This can be of any size so it is better to store it in a cloud format like S3 bucket,
+        # where we can have different versions also, we can sync it with here
 
          ## Model Trainer Artifact
         model_trainer_artifact=ModelTrainerArtifact(
